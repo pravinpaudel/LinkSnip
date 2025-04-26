@@ -5,9 +5,9 @@ const handleUserSignup = async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const user = await User.create({ name, email, password });
-        res.redirect('/');
         const token = setUser(user);
         res.cookie('sessionId', token);
+        res.redirect('/');
     } catch (error) {
         console.log(error);
         res.render('signup', {error: 'User already exists'});
