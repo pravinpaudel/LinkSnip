@@ -29,7 +29,7 @@ LinkSnip is a modern URL shortening service built with Node.js, Express, and Mon
 
 1. Clone the repository
    ```
-   git clone https://github.com/yourusername/linksnip.git
+   git clone https://github.com/pravinpaudel/linksnip.git
    cd linksnip
    ```
 
