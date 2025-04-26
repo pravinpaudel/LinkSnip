@@ -1,5 +1,6 @@
 const URL = require('../models/url')
-const { nanoid } = require('nanoid')
+const { nanoid } = await import("nanoid");
+
 
 const handleCreateShortUrl = async (req, res) => {
     console.log(req.body)
