@@ -2,8 +2,6 @@
 
 LinkSnip is a modern URL shortening service built with Node.js, Express, and MongoDB. This application allows users to create shortened URLs, track visit analytics, and manage their links through a clean, responsive interface.
 
-![LinkSnip Screenshot](https://placeholder-image.com/linksnip-screenshot.png)
-
 ## Features
 
 - **URL Shortening**: Convert long URLs into short, manageable links
