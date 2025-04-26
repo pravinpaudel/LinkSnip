@@ -7,7 +7,7 @@ const handleUserSignup = async (req, res) => {
         const user = await User.create({ name, email, password });
         const token = setUser(user);
         res.cookie('sessionId', token);
-        res.redirect(200, '/');
+        res.redirect('/');
     } catch (error) {
         console.log(error);
         res.render('signup', {error: 'User already exists'});
@@ -23,7 +23,7 @@ const handleUsserLogin = async (req, res)=> {
 
     const token = setUser(user);
     res.cookie('sessionId', token);
-    res.redirect(200, '/');
+    res.redirect('/');
 }
 
 module.exports = {
