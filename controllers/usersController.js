@@ -5,7 +5,7 @@ const handleUserSignup = async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const user = await User.create({ name, email, password });
-        res.redirect('/login');
+        res.redirect('/');
     } catch (error) {
         console.log(error);
         res.render('signup', {error: 'User already exists'});
