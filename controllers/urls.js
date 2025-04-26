@@ -1,5 +1,5 @@
 const URL = require('../models/url')
-const { nanoid } = import("nanoid");
+// const { nanoid } = import("nanoid");
 
 
 const handleCreateShortUrl = async (req, res) => {
@@ -7,7 +7,7 @@ const handleCreateShortUrl = async (req, res) => {
     if(!req.body.url)
         return res.status(400).json({error: 'url is required'})
 
-    const shortId = nanoid(8);
+    const shortId = await generateShortId();
     await URL.create({
         shortId: shortId,
         originalUrl: req.body.url,
@@ -25,5 +25,15 @@ const handleGetAnalytics = async (req, res) => {
         analytics: result.visitHistory
     })
 }
+async function generateShortId() {
+    const { nanoid } = await import("nanoid"); // Dynamic import inside an async function
+    return nanoid(8);
+}
+
+async function generateShortId() {
+    const { nanoid } = await import("nanoid"); // Dynamic import inside an async function
+    return nanoid(8);
+}
+
 
 module.exports = { handleCreateShortUrl, handleGetAnalytics }
