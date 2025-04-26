@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>URL Shortner</h1>
+    <form action="/url" method="POST">
+        <label for="url">Enter your URL</label>
+        <input type="text" name="url" placeholder="https://www.example.com">
+        <button type="submit">Generate</button>
+    </form>
+    <!-- Data from backend is sent to the frontend using locals -->
+    <% if(locals.id) { %>
+        <div>
+            <p>Your short URL is: http://localhost:3000/url/<%= id %> </p>
+        </div>
+    <% } %>
+    
+    <% if(locals.allUrls && allUrls.length > 0) { %>
+        <h2>All URLs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S. No</th>
+                    <th>Short ID</th>
+                    <th>Original URL</th>
+                    <th>Visit History</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allUrls.forEach((url, index) => { %>
+                    <tr>
+                        <td>
+                            <%= index + 1 %>
+                        </td>
+                        <td>
+                            <%= url.shortId %>
+                        </td>
+                        <td>
+                            <%= url.originalUrl %>
+                        </td>
+                        <td>
+                            <%= url.visitHistory.length %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>
