@@ -2,8 +2,8 @@ const jwt = require('jsonwebtoken');
 
 const setUser =  (user) => {
     const payload = {
-        // ...user,
-        id: user._id,
+        //  ...user,
+        _id: user._id,
         email: user.email,
         exp: Math.floor(Date.now() / 1000) + (60 * 60) // Set expiration time to 1 hour
     }

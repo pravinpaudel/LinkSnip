@@ -17,6 +17,7 @@ const isAuthenticated = (req, res, next) => {
     const sessionId = req.cookies?.sessionId
     const user = getUser(sessionId);
     req.user = user;
+    console.log("User:", user)
     next();
 }
 
