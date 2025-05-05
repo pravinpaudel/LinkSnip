@@ -36,7 +36,7 @@ app.get('/logout', (req, res) => {
 
 console.log('Connecting to DB...')
 // Connect to the database
-await connectDB()
+connectDB()
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
