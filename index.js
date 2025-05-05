@@ -36,10 +36,11 @@ app.get('/logout', (req, res) => {
 
 console.log('Connecting to DB...')
 // Connect to the database
-connectDB()
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+// Start server only after successful DB connection
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+});
 
 
